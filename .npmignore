@@ -36,15 +36,10 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-.idea
-.gradle
+# Mac
 .DS_Store
-local.properties
-build
-android/keystores/debug.keystore
 
 # Xcode
-#
 build/
 *.pbxuser
 !default.pbxuser
@@ -62,6 +57,21 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+
+# Android
+*.iml
+.idea
+.gradle
+local.properties
+build
+keystores
+*.keystores
+
+# BUCK
+buck-out/
+\.buckd/
+android/app/libs
+android/keystores/debug.keystore
 
 .babelrc
 .eslintrc
