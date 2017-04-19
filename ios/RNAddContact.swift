@@ -18,11 +18,7 @@ class RNAddContact: NSObject, CNContactViewControllerDelegate {
   
   @objc func constantsToExport() -> [String: Any] {
     return [
-      "dark": "dark",
-      "light": "light",
-      "iconOnly": "iconOnly",
-      "standard": "standard",
-      "wide": "wide",
+      "name": "RNAddContact",
     ]
   }
   

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -36,11 +35,12 @@
 		2DCD954D1E0B4F2C00145EB5 /* ExampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ExampleAppTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		AC01688F1EA45ED100DE26F8 /* RNAddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01688D1EA45ED100DE26F8 /* RNAddContact.swift */; };
-		AC0168901EA45ED100DE26F8 /* RNAddContactBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01688E1EA45ED100DE26F8 /* RNAddContactBridge.m */; };
-		AC0168931EA4755700DE26F8 /* RNContactViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0168921EA4755700DE26F8 /* RNContactViewManager.m */; };
-		AC0168951EA4765E00DE26F8 /* RNContactViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0168941EA4765E00DE26F8 /* RNContactViewManager.swift */; };
-		AC0168971EA4809200DE26F8 /* RNContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0168961EA4809200DE26F8 /* RNContactView.swift */; };
+		AC57DE3A1EA4EDCF00F9D947 /* RNAddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC57DE351EA4EDCF00F9D947 /* RNAddContact.swift */; };
+		AC57DE3B1EA4EDCF00F9D947 /* RNAddContactBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = AC57DE361EA4EDCF00F9D947 /* RNAddContactBridge.m */; };
+		AC57DE3C1EA4EDCF00F9D947 /* RNContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC57DE371EA4EDCF00F9D947 /* RNContactView.swift */; };
+		AC57DE3D1EA4EDCF00F9D947 /* RNContactViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC57DE381EA4EDCF00F9D947 /* RNContactViewManager.m */; };
+		AC57DE3E1EA4EDCF00F9D947 /* RNContactViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC57DE391EA4EDCF00F9D947 /* RNContactViewManager.swift */; };
+		A8C2607DCAB347A28640ED76 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7BF8B9A8A44FA08873E604 /* libRCTActionSheet.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,12 +261,14 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		AC01688B1EA45ED100DE26F8 /* ExampleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		AC01688C1EA45ED100DE26F8 /* RNAddContact-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RNAddContact-Bridging-Header.h"; path = "../../ios/RNAddContact-Bridging-Header.h"; sourceTree = "<group>"; };
-		AC01688D1EA45ED100DE26F8 /* RNAddContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNAddContact.swift; path = ../../ios/RNAddContact.swift; sourceTree = "<group>"; };
-		AC01688E1EA45ED100DE26F8 /* RNAddContactBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNAddContactBridge.m; path = ../../ios/RNAddContactBridge.m; sourceTree = "<group>"; };
-		AC0168921EA4755700DE26F8 /* RNContactViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNContactViewManager.m; path = ../../ios/RNContactViewManager.m; sourceTree = "<group>"; };
-		AC0168941EA4765E00DE26F8 /* RNContactViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNContactViewManager.swift; path = ../../ios/RNContactViewManager.swift; sourceTree = "<group>"; };
-		AC0168961EA4809200DE26F8 /* RNContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNContactView.swift; path = ../../ios/RNContactView.swift; sourceTree = "<group>"; };
+		AC57DE341EA4EDCF00F9D947 /* RNAddContact-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RNAddContact-Bridging-Header.h"; path = "../../ios/RNAddContact-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC57DE351EA4EDCF00F9D947 /* RNAddContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNAddContact.swift; path = ../../ios/RNAddContact.swift; sourceTree = "<group>"; };
+		AC57DE361EA4EDCF00F9D947 /* RNAddContactBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNAddContactBridge.m; path = ../../ios/RNAddContactBridge.m; sourceTree = "<group>"; };
+		AC57DE371EA4EDCF00F9D947 /* RNContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNContactView.swift; path = ../../ios/RNContactView.swift; sourceTree = "<group>"; };
+		AC57DE381EA4EDCF00F9D947 /* RNContactViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNContactViewManager.m; path = ../../ios/RNContactViewManager.m; sourceTree = "<group>"; };
+		AC57DE391EA4EDCF00F9D947 /* RNContactViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNContactViewManager.swift; path = ../../ios/RNContactViewManager.swift; sourceTree = "<group>"; };
+		47F3BDD690894C33A29D8068 /* ExampleApp.xcodeproj */ = {isa = PBXFileReference; name = "ExampleApp.xcodeproj"; path = "ExampleApp.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		5A7BF8B9A8A44FA08873E604 /* libRCTActionSheet.a */ = {isa = PBXFileReference; name = "libRCTActionSheet.a"; path = "libRCTActionSheet.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				A8C2607DCAB347A28640ED76 /* libRCTActionSheet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +462,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				47F3BDD690894C33A29D8068 /* ExampleApp.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -475,7 +479,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				AC0168911EA45ED700DE26F8 /* RNAddContact */,
+				AC57DE1A1EA4EDAE00F9D947 /* RNAddContact */,
 				13B07FAE1A68108700A75B9A /* ExampleApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ExampleAppTests */,
@@ -497,15 +501,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AC0168911EA45ED700DE26F8 /* RNAddContact */ = {
+		AC57DE1A1EA4EDAE00F9D947 /* RNAddContact */ = {
 			isa = PBXGroup;
 			children = (
-				AC01688C1EA45ED100DE26F8 /* RNAddContact-Bridging-Header.h */,
-				AC01688D1EA45ED100DE26F8 /* RNAddContact.swift */,
-				AC01688E1EA45ED100DE26F8 /* RNAddContactBridge.m */,
-				AC0168921EA4755700DE26F8 /* RNContactViewManager.m */,
-				AC0168941EA4765E00DE26F8 /* RNContactViewManager.swift */,
-				AC0168961EA4809200DE26F8 /* RNContactView.swift */,
+				AC57DE341EA4EDCF00F9D947 /* RNAddContact-Bridging-Header.h */,
+				AC57DE351EA4EDCF00F9D947 /* RNAddContact.swift */,
+				AC57DE361EA4EDCF00F9D947 /* RNAddContactBridge.m */,
+				AC57DE371EA4EDCF00F9D947 /* RNContactView.swift */,
+				AC57DE381EA4EDCF00F9D947 /* RNContactViewManager.m */,
+				AC57DE391EA4EDCF00F9D947 /* RNContactViewManager.swift */,
 			);
 			name = RNAddContact;
 			sourceTree = "<group>";
@@ -591,7 +595,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -600,7 +604,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = J623D3MCYC;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 830;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -936,13 +940,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC0168971EA4809200DE26F8 /* RNContactView.swift in Sources */,
+				AC57DE3C1EA4EDCF00F9D947 /* RNContactView.swift in Sources */,
+				AC57DE3E1EA4EDCF00F9D947 /* RNContactViewManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				AC0168931EA4755700DE26F8 /* RNContactViewManager.m in Sources */,
-				AC0168901EA45ED100DE26F8 /* RNAddContactBridge.m in Sources */,
+				AC57DE3B1EA4EDCF00F9D947 /* RNAddContactBridge.m in Sources */,
+				AC57DE3D1EA4EDCF00F9D947 /* RNContactViewManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				AC01688F1EA45ED100DE26F8 /* RNAddContact.swift in Sources */,
-				AC0168951EA4765E00DE26F8 /* RNContactViewManager.swift in Sources */,
+				AC57DE3A1EA4EDCF00F9D947 /* RNAddContact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1013,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp.app/ExampleApp";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)//**",
+				);
 			};
 			name = Debug;
 		};
@@ -1027,6 +1039,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp.app/ExampleApp";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)//**",
+				);
 			};
 			name = Release;
 		};
@@ -1051,6 +1071,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)//**",
+				);
 			};
 			name = Debug;
 		};
@@ -1073,6 +1097,10 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ExampleApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)//**",
+				);
 			};
 			name = Release;
 		};
@@ -1099,6 +1127,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)//**",
+				);
 			};
 			name = Debug;
 		};
@@ -1125,6 +1161,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)//**",
+				);
 			};
 			name = Release;
 		};
@@ -1146,6 +1190,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp-tvOS.app/ExampleApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1167,6 +1215,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp-tvOS.app/ExampleApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};
