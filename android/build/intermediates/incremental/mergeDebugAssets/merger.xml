@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/joonhocho/dev/react-native-add-contact/android/src/main/assets"/><source path="/Users/joonhocho/dev/react-native-add-contact/android/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/joonhocho/dev/react-native-add-contact/android/src/debug/assets"/></dataSet></merger>
