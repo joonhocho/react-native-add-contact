@@ -4,13 +4,13 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
 } from 'react-native';
 import AddContact, {ContactView} from 'react-native-add-contact';
 
@@ -18,48 +18,70 @@ export default class ExampleApp extends Component {
   componentWillMount() {
     this.setState({
       contact: {
-        contactType: 'organization',
+        type: 'organization',
 
-        namePrefix: 'Mr.',
-        givenName: 'John',
-        middleName: 'Philip',
-        familyName: 'Doe',
-        previousFamilyName: 'Dope',
-        nameSuffix: 'Jr.',
-        nickname: 'Johnie',
+        name: {
+          prefix: 'Mr.',
+          givenName: 'John',
+          middleName: 'Philip',
+          familyName: 'Doe',
+          previousFamilyName: 'Dope',
+          suffix: 'Jr.',
 
-        organizationName: 'Google',
-        departmentName: 'Engineering',
-        jobTitle: 'Software Engineer',
+          phoneticGivenName: 'Jon',
+          phoneticMiddleName: 'Fil',
+          phoneticFamilyName: 'Do',
+        },
 
-        phoneticGivenName: 'Jon',
-        phoneticMiddleName: 'Fil',
-        phoneticFamilyName: 'Do',
-        phoneticOrganizationName: 'Gugle',
+        nicknames: [{
+          label: 'initials',
+          name: 'JPD',
+        }, {
+          name: 'Jony',
+        }],
 
-        note: 'This is notes, and it\'s about John.\nHello.',
-        imageData: null,
+        organizations: [{
+          company: 'Google',
+          department: 'Engineering',
+          title: 'Software Engineer',
 
-        phoneNumbers: [{
+          phoneticCompany: 'Gugle',
+        }],
+
+        notes: [{
+          note: 'This is notes, and it\'s about John.\nHello.',
+        }, {
+          note: 'This is,\n another note.',
+        }],
+
+        photos: [{
+          photo: null,
+        }],
+
+        phones: [{
           label: 'home',
-          value: '123 456 7890',
+          number: '123 456 7890',
         }, {
           label: 'work',
-          value: '+1 234 567 8901',
+          number: '+1 234 567 8901',
+        }, {
+          label: 'my phone',
+          number: '+1239479223',
         }],
 
-        emailAddresses: [{
+        emails: [{
           label: 'Home',
-          value: 'john@gmail.com',
+          address: 'john@gmail.com',
+          displayName: 'John Doe',
         }, {
           label: 'Happy',
-          value: 'happy@gmail.com',
+          address: 'happy@gmail.com',
         }, {
           label: 'Other',
-          value: 'johnie@hotmail.com',
+          address: 'johnie@hotmail.com',
         }],
 
-        postalAddresses: [{
+        postals: [{
           label: 'home',
           street: '123 Forbes Ave, Apt 1',
           subLocality: null,
@@ -81,37 +103,58 @@ export default class ExampleApp extends Component {
           isoCountryCode: 'US',
         }],
 
-        urlAddresses: [{
+        websites: [{
+          label: 'google',
+          url: 'http://google.com',
+        }, {
+          label: 'test',
+          url: 'test.com',
+        }, {
           label: 'company',
-          value: 'http://mycompany.com',
+          url: 'http://mycompany.com',
         }],
 
-        contactRelations: [{
+        relations: [{
           label: 'father',
-          value: 'Father Doe',
+          name: 'Father Doe',
+        }, {
+          label: 'stranger',
+          name: 'Stranger Joe',
         }, {
           label: 'mother',
-          value: 'Mother Toe',
+          name: 'Mother Toe',
         }],
 
         socialProfiles: [{
           label: null,
-          urlString: null,
+          url: null,
           username: 'mark',
-          userIdentifier: null,
+          userId: null,
           service: 'facebook',
         }, {
           label: null,
-          urlString: null,
+          url: null,
           username: 'google',
-          userIdentifier: null,
+          userId: null,
           service: 'twitter',
         }],
 
-        instantMessageAddresses: [{
-          label: null,
-          username: 'bill',
+        ims: [{
+          label: 'my aim',
+          service: 'aim',
+          username: 'aimer',
+        }, {
+          label: 'my msn',
           service: 'msn',
+          username: 'msner',
+        }, {
+          label: 'my yahoo',
+          service: 'yahoo',
+          username: 'yahooer',
+        }, {
+          label: 'home',
+          service: 'facebook',
+          username: 'facebooker',
         }],
 
         birthday: {
@@ -155,12 +198,7 @@ export default class ExampleApp extends Component {
           Cmd+D or shake for dev menu
         </Text>
         <TouchableHighlight onPress={async () => {
-          await AddContact.addContact({
-            givenName: 'John',
-            familyName: 'Doe',
-          });
-
-          alert('hi');
+          await AddContact.addContact(this.state.contact);
         }}>
           <Text style={styles.instructions}>
             Test

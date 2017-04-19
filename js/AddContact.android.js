@@ -1,3 +1,5 @@
+import formatContact from './formatContact';
+
 const ReactNative = require('react-native');
 
 const {
@@ -12,7 +14,7 @@ const AddContact = {
   name: RNAddContact.name,
 
   addContact(data) {
-    return RNAddContact.addContact(data);
+    return RNAddContact.addContact(formatContact(data));
   },
 };
 

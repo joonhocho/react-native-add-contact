@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -30,130 +30,172 @@ export default class ExampleApp extends Component {
         </Text>
         <TouchableHighlight onPress={async () => {
           const res = await AddContact.addContact({
-            name: 'Mr. John Philip Doe Jr.',
-            phoneticName: 'Phonetic Name',
-            photoUri: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
-            photoThumbnailUri: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
-            names: [{
-              // displayName: 'Mr. McDonalds',
+            type: 'organization',
+
+            name: {
+              prefix: 'Mr.',
               givenName: 'John',
+              middleName: 'Philip',
               familyName: 'Doe',
-              // prefix: 'Dr.',
-              // middleName: 'Philip',
-              // suffix: 'Jr.',
-              // phoneticGivenName: 'Jon',
-              // phoneticMiddleName: 'Phil',
-              // phoneticFamilyName: 'Doh',
-            }],
+              previousFamilyName: 'Dope',
+              suffix: 'Jr.',
+
+              phoneticGivenName: 'Jon',
+              phoneticMiddleName: 'Fil',
+              phoneticFamilyName: 'Do',
+            },
+
             nicknames: [{
               label: 'initials',
-              name: 'Johnie',
+              name: 'JPD',
             }, {
-              label: '',
               name: 'Jony',
             }],
-            phones: [{
-              label: 'home',
-              number: '2345678901',
-              // normalizedNumber: '+12345678901',
-            }, {
-              label: 'work',
-              number: '+12345678901',
-            }, {
-              label: 'my phone label',
-              number: '+1239479223',
-            }, {
-              label: 'other',
-              number: '12345678901',
-            }],
-            emails: [{
-              label: 'work',
-              address: 'johndoe@example.com',
-              displayName: 'John Doe',
-            }, {
-              label: 'happy',
-              address: 'happy@test.com',
-            }, {
-              label: 'home',
-              address: 'johndoe@test.com',
-            }],
-            postals: [{
-              label: 'home',
-              formattedAddress: '123, 123 Forbes Ave, San Francisco, CA 12345 USA',
-              street: '123 Forbes Ave',
-              pobox: '123',
-              neighborhood: 'Oakland',
-              city: 'San Francisco',
-              region: 'CA',
-              postcode: '12345-6789',
-              country: 'USA',
-            }, {
-              label: 'work',
-              formattedAddress: '234 Formatted Road, Pittsburgh, PA',
-            }],
-            ims: [{
-              label: 'my aim',
-              protocol: 'aim',
-              username: 'aimer',
-            }, {
-              label: 'my msn',
-              protocol: 'msn',
-              username: 'msner',
-            }, {
-              label: 'my yahoo',
-              protocol: 'yahoo',
-              username: 'yahooer',
-            }, {
-              label: 'home',
-              protocol: 'facebook',
-              username: 'facebooker',
-            }],
+
             organizations: [{
-              label: 'work',
-              company: 'Google Inc',
-              title: 'Software Engineer',
+              company: 'Google',
               department: 'Engineering',
-              jobDescription: 'Develop ads.',
-              symbol: 'GOOG',
-              phoneticName: '',
-              officeLocation: '1800 Amphitheatre Pkwy, Mountain View, CA',
+              title: 'Software Engineer',
+
+              phoneticCompany: 'Gugle',
             }],
-            relations: [{
-              label: 'mother',
-              name: 'Mom',
-            }, {
-              label: 'father',
-              name: 'Pop',
-            }],
-            events: [{
-              label: 'birthday',
-              startDate: '1990-01-23',
-            }, {
-              label: 'mille',
-              startDate: '2000-01-01',
-            }],
-            photos: [{
-              photo: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
-            }],
+
             notes: [{
-              note: 'This is,\n a note.',
+              note: 'This is notes, and it\'s about John.\nHello.',
             }, {
               note: 'This is,\n another note.',
             }],
+
+            photos: [{
+              photo: null,
+            }],
+
+            phones: [{
+              label: 'home',
+              number: '123 456 7890',
+            }, {
+              label: 'work',
+              number: '+1 234 567 8901',
+            }, {
+              label: 'my phone',
+              number: '+1239479223',
+            }],
+
+            emails: [{
+              label: 'Home',
+              address: 'john@gmail.com',
+              displayName: 'John Doe',
+            }, {
+              label: 'Happy',
+              address: 'happy@gmail.com',
+            }, {
+              label: 'Other',
+              address: 'johnie@hotmail.com',
+            }],
+
+            postals: [{
+              label: 'home',
+              street: '123 Forbes Ave, Apt 1',
+              subLocality: null,
+              city: 'San Francisco',
+              subAdministrativeArea: null,
+              state: 'CA',
+              postalCode: '12345-5678',
+              country: 'USA',
+              isoCountryCode: 'US',
+            }, {
+              label: 'Vacation Home',
+              street: '234 Forbes Ave',
+              subLocality: 'subloc',
+              city: 'Ocean City',
+              subAdministrativeArea: 'subadmin',
+              state: 'Hawaii',
+              postalCode: '12345-5678',
+              country: 'USA',
+              isoCountryCode: 'US',
+            }],
+
             websites: [{
               label: 'google',
               url: 'http://google.com',
             }, {
               label: 'test',
               url: 'test.com',
+            }, {
+              label: 'company',
+              url: 'http://mycompany.com',
             }],
+
+            relations: [{
+              label: 'father',
+              name: 'Father Doe',
+            }, {
+              label: 'stranger',
+              name: 'Stranger Joe',
+            }, {
+              label: 'mother',
+              name: 'Mother Toe',
+            }],
+
+            socialProfiles: [{
+              label: null,
+              url: null,
+              username: 'mark',
+              userId: null,
+              service: 'facebook',
+            }, {
+              label: null,
+              url: null,
+              username: 'google',
+              userId: null,
+              service: 'twitter',
+            }],
+
+            ims: [{
+              label: 'my aim',
+              service: 'aim',
+              username: 'aimer',
+            }, {
+              label: 'my msn',
+              service: 'msn',
+              username: 'msner',
+            }, {
+              label: 'my yahoo',
+              service: 'yahoo',
+              username: 'yahooer',
+            }, {
+              label: 'home',
+              service: 'facebook',
+              username: 'facebooker',
+            }],
+
+            birthday: {
+              year: 1999,
+              month: 1,
+              day: 31,
+            },
+
+            nonGregorianBirthday: null && {
+              year: 2000,
+              month: 2,
+              day: 28,
+            },
+
+            dates: [{
+              label: 'anniversary',
+              year: 2001,
+              month: 3,
+              day: 30,
+            }, {
+              label: 'fun day',
+              year: 2002,
+              month: 4,
+              day: 1,
+            }],
+
             sipAddresses: [{
-              label: 'google',
-              sipAddress: 'what is this?',
-            }],
-            identities: [{
-              identity: 'identity',
-              namespace: 'namespace',
+              label: 'SIPADR',
+              sipAddress: 'skype/sip',
             }],
           });
 
