@@ -49,10 +49,13 @@ export default class ExampleApp extends Component {
         }],
 
         emailAddresses: [{
-          label: 'home',
+          label: 'Home',
           value: 'john@gmail.com',
         }, {
-          label: 'other',
+          label: 'Happy',
+          value: 'happy@gmail.com',
+        }, {
+          label: 'Other',
           value: 'johnie@hotmail.com',
         }],
 

@@ -61,11 +61,11 @@ class RNContactView: UIView, CNContactViewControllerDelegate {
         return CNLabelPhoneNumberMobile
       case "main":
         return CNLabelPhoneNumberMain
-      case "homefax":
+      case "homefax", "home fax", "home_fax":
         return CNLabelPhoneNumberHomeFax
-      case "workfax":
+      case "workfax", "work fax", "work_fax":
         return CNLabelPhoneNumberWorkFax
-      case "otherfax":
+      case "otherfax", "other fax", "other_fax":
         return CNLabelPhoneNumberOtherFax
       case "pager":
         return CNLabelPhoneNumberPager
@@ -157,13 +157,13 @@ class RNContactView: UIView, CNContactViewControllerDelegate {
         return CNSocialProfileServiceMySpace
       case "sinaweibo":
         return CNSocialProfileServiceSinaWeibo
-      case "tencentweibo":
+      case "weibo", "tencentweibo", "tencent weibo", "tencent_weibo":
         return CNSocialProfileServiceTencentWeibo
       case "twitter":
         return CNSocialProfileServiceTwitter
       case "yelp":
         return CNSocialProfileServiceYelp
-      case "gamecenter":
+      case "gamecenter", "game center", "game_center":
         return CNSocialProfileServiceGameCenter
       default:
         return label
@@ -181,7 +181,7 @@ class RNContactView: UIView, CNContactViewControllerDelegate {
         return CNInstantMessageServiceFacebook
       case "gadugadu":
         return CNInstantMessageServiceGaduGadu
-      case "googletalk":
+      case "googletalk", "google talk", "google_talk":
         return CNInstantMessageServiceGoogleTalk
       case "icq":
         return CNInstantMessageServiceICQ
