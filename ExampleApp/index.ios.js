@@ -13,6 +13,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import AddContact, {ContactView} from 'react-native-add-contact';
+import imageData from './imageBase64';
 
 export default class ExampleApp extends Component {
   componentWillMount() {
@@ -55,7 +56,8 @@ export default class ExampleApp extends Component {
         }],
 
         photos: [{
-          photo: null,
+          data: imageData,
+          // uri: 'https://s-media-cache-ak0.pinimg.com/736x/dd/45/96/dd4596b601062eb491ea9bb8e3a78062--black-and-white-portraits-black-and-white-photography.jpg',
         }],
 
         phones: [{
@@ -67,12 +69,16 @@ export default class ExampleApp extends Component {
         }, {
           label: 'my phone',
           number: '+1239479223',
+        }, {
+          label: 'only label',
         }],
 
         emails: [{
           label: 'Home',
           address: 'john@gmail.com',
           displayName: 'John Doe',
+        }, {
+          label: 'only label',
         }, {
           label: 'Happy',
           address: 'happy@gmail.com',
@@ -107,6 +113,8 @@ export default class ExampleApp extends Component {
           label: 'google',
           url: 'http://google.com',
         }, {
+          label: 'only label',
+        }, {
           label: 'test',
           url: 'test.com',
         }, {
@@ -117,6 +125,8 @@ export default class ExampleApp extends Component {
         relations: [{
           label: 'father',
           name: 'Father Doe',
+        }, {
+          label: 'just label',
         }, {
           label: 'stranger',
           name: 'Stranger Joe',
@@ -132,6 +142,8 @@ export default class ExampleApp extends Component {
           userId: null,
           service: 'facebook',
         }, {
+          label: 'just label',
+        }, {
           label: null,
           url: null,
           username: 'google',
@@ -143,6 +155,8 @@ export default class ExampleApp extends Component {
           label: 'my aim',
           service: 'aim',
           username: 'aimer',
+        }, {
+          label: 'just label',
         }, {
           label: 'my msn',
           service: 'msn',

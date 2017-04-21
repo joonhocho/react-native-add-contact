@@ -1,3 +1,5 @@
+const isNonEmptyString = (x) => typeof x === 'string' && x.length > 0;
+
 export default ({
   type: contactType,
   name,
@@ -47,9 +49,7 @@ export default ({
     // officeLocation,
   } = organizations && organizations[0] || {};
 
-  const nickname = nicknames && nicknames[0] && nicknames[0].name;
-  const imageData = photos && photos[0] && photos[0].photo;
-  const note = notes && notes[0] && notes[0].note;
+  const photo = photos && photos[0] || null;
 
   return {
     contactType,
@@ -61,7 +61,7 @@ export default ({
     previousFamilyName,
     nameSuffix,
 
-    nickname,
+    nickname: nicknames && nicknames[0] && nicknames[0].name,
 
     organizationName,
     departmentName,
@@ -72,8 +72,9 @@ export default ({
     phoneticFamilyName,
     phoneticOrganizationName,
 
-    note,
-    imageData,
+    note: notes && notes[0] && notes[0].note,
+    imageData: photo && photo.data,
+    imageUri: photo && photo.uri,
 
     phoneNumbers: phones && phones.map(({
       label,
@@ -81,7 +82,7 @@ export default ({
     }) => ({
       label,
       value,
-    })),
+    })).filter(({value}) => isNonEmptyString(value)),
 
     emailAddresses: emails && emails.map(({
       label,
@@ -90,7 +91,7 @@ export default ({
     }) => ({
       label,
       value,
-    })),
+    })).filter(({value}) => isNonEmptyString(value)),
 
     postalAddresses: postals && postals.map(({
       label,
@@ -121,7 +122,7 @@ export default ({
     }) => ({
       label,
       value,
-    })),
+    })).filter(({value}) => isNonEmptyString(value)),
 
     contactRelations: relations && relations.map(({
       label,
@@ -129,7 +130,7 @@ export default ({
     }) => ({
       label,
       value,
-    })),
+    })).filter(({value}) => isNonEmptyString(value)),
 
     socialProfiles: socialProfiles && socialProfiles.map(({
       label,
@@ -143,7 +144,18 @@ export default ({
       username,
       userIdentifier,
       service,
-    })),
+    })).filter(({
+      urlString,
+      username,
+      userIdentifier,
+      service,
+    }) =>
+      isNonEmptyString(urlString) ||
+      isNonEmptyString(service) && (
+        isNonEmptyString(username) ||
+        isNonEmptyString(userIdentifier)
+      )
+    ),
 
     instantMessageAddresses: ims && ims.map(({
       label,
@@ -153,7 +165,13 @@ export default ({
       label,
       username,
       service,
-    })),
+    })).filter(({
+      username,
+      service,
+    }) =>
+      isNonEmptyString(username) &&
+      isNonEmptyString(service)
+    ),
 
     birthday,
 
@@ -199,12 +217,12 @@ export default ({
 
   phoneNumbers: [{
     label,
-    value,
+    value, !
   }],
 
   emailAddresses: [{
     label,
-    value,
+    value, !
   }],
 
   postalAddresses: [{
@@ -221,12 +239,12 @@ export default ({
 
   urlAddresses: [{
     label,
-    value,
+    value, !
   }],
 
   contactRelations: [{
     label,
-    value,
+    value, !
   }],
 
   socialProfiles: [{
@@ -239,8 +257,8 @@ export default ({
 
   instantMessageAddresses: [{
     label,
-    username,
-    service,
+    username, !
+    service, !
   }],
 
   birthday: {

@@ -260,7 +260,13 @@ class RNContactView: UIView, CNContactViewControllerDelegate {
     }
     
     if let value = data["imageData"] as? String {
-      contact.imageData = Data(base64Encoded: value, options: .ignoreUnknownCharacters)!
+      contact.imageData = Data(base64Encoded: value, options: .ignoreUnknownCharacters)
+    } else if let value = data["imageUri"] as? String, let url = URL(string: value) {
+      do {
+        contact.imageData = try Data(contentsOf: url, options: .uncached)
+      } catch {
+        // do nothing
+      }
     }
     
     if let value = data["phoneNumbers"] as? [[String: Any]] {
@@ -392,18 +398,20 @@ class RNContactView: UIView, CNContactViewControllerDelegate {
   
   func initContactViewController(_ contact: CNContact) {
     // Creating a mutable object to add to the contact
-    if let vc = controller {
-      vc.delegate = nil
-      vc.removeFromParentViewController()
-      vc.view.removeFromSuperview()
+    DispatchQueue.main.async {
+      if let vc = self.controller {
+        vc.delegate = nil
+        vc.removeFromParentViewController()
+        vc.view.removeFromSuperview()
+      }
+      
+      let vc = CNContactViewController(forUnknownContact: contact)
+      self.controller = vc
+      vc.delegate = self
+      vc.contactStore = CNContactStore()
+      vc.view.frame = self.frame
+      self.addSubview(vc.view)
     }
-    
-    let vc = CNContactViewController(forUnknownContact: contact)
-    self.controller = vc
-    vc.delegate = self
-    vc.contactStore = CNContactStore()
-    vc.view.frame = frame
-    addSubview(vc.view)
   }
   
   override func layoutSubviews() {
@@ -421,12 +429,10 @@ class RNContactView: UIView, CNContactViewControllerDelegate {
   */
   
   func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
-    print(property)
     return true
   }
   
   func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
     // onDone
-    print("Yay!")
   }
 }

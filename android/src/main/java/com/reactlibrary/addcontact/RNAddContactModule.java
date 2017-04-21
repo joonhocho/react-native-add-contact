@@ -21,6 +21,11 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableType;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -190,6 +195,50 @@ public class RNAddContactModule extends ReactContextBaseJavaModule {
             String base64 = map.getString(key);
             if (base64 != null && !base64.isEmpty()) {
                 return Base64.decode(base64, 0);
+            }
+        }
+        return null;
+    }
+
+    public static byte[] byteArrayFromUrl(String urlString) {
+        URL url;
+        try {
+            url = new URL(urlString);
+        } catch (MalformedURLException e) {
+            return null;
+        }
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        InputStream is = null;
+
+        try {
+            is = url.openStream();
+            byte[] byteChunk = new byte[4096]; // Or whatever size you want to read in at a time.
+
+            int n;
+            while ((n = is.read(byteChunk)) > 0) {
+                baos.write(byteChunk, 0, n);
+            }
+        } catch (IOException e) {
+            return null;
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    // do nothing
+                }
+            }
+        }
+
+        return baos.toByteArray();
+    }
+
+    private byte[] getBlobFromUri(ReadableMap map, String key) {
+        if (map.hasKey(key) && map.getType(key) == ReadableType.String) {
+            String uri = map.getString(key);
+            if (uri != null && !uri.isEmpty()) {
+                return byteArrayFromUrl(uri);
             }
         }
         return null;
@@ -673,7 +722,8 @@ public class RNAddContactModule extends ReactContextBaseJavaModule {
         ContentValues values = new ContentValues();
         values.put(Data.MIMETYPE, Photo.CONTENT_ITEM_TYPE);
         addContentValue(values, Photo.PHOTO_FILE_ID, getInt(data, "photoFileId"));
-        addContentValue(values, Photo.PHOTO, getBlob(data, "photo"));
+        addContentValue(values, Photo.PHOTO, getBlob(data, "data"));
+        addContentValue(values, Photo.PHOTO, getBlobFromUri(data, "uri"));
         return values;
     }
 

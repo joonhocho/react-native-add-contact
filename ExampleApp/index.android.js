@@ -13,6 +13,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import AddContact from 'react-native-add-contact';
+import imageData from './imageBase64';
 
 export default class ExampleApp extends Component {
   render() {
@@ -67,7 +68,8 @@ export default class ExampleApp extends Component {
             }],
 
             photos: [{
-              photo: null,
+              data: imageData,
+              // uri: 'http://cdn.newsapi.com.au/image/v1/335a6997d394c4d65a00aadc99c4fd44',
             }],
 
             phones: [{

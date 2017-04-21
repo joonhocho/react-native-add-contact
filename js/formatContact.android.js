@@ -1,3 +1,7 @@
+const isSet = (x) => x;
+
+const isNonEmptyString = (x) => typeof x === 'string' && x.length > 0;
+
 const pad = (str, padStr) =>
   padStr.substring(0, padStr.length - str.length) + str;
 
@@ -52,13 +56,13 @@ export default ({
       middleName,
       familyName,
       suffix,
-    ].filter((x) => x).join(' '),
+    ].filter(isSet).join(' '),
 
     phoneticName: formattedPhoneticName || [
       phoneticGivenName,
       phoneticMiddleName,
       phoneticFamilyName,
-    ].filter((x) => x).join(' '),
+    ].filter(isSet).join(' '),
 
     // photoUri,
     // photoThumbnailUri,
@@ -83,7 +87,7 @@ export default ({
     }) => ({
       label,
       name,
-    })),
+    })).filter(({name}) => isNonEmptyString(name)),
 
     phones: phones && phones.map(({
       label,
@@ -91,7 +95,7 @@ export default ({
     }) => ({
       label,
       number,
-    })),
+    })).filter(({number}) => isNonEmptyString(number)),
 
     emails: emails && emails.map(({
       label,
@@ -101,7 +105,7 @@ export default ({
       label,
       address,
       displayName,
-    })),
+    })).filter(({address}) => isNonEmptyString(address)),
 
     postals: postals && postals.map(({
       label,
@@ -122,7 +126,7 @@ export default ({
         state || subAdministrativeArea,
         postalCode,
         country || isoCountryCode,
-      ].filter((x) => x).join(', '),
+      ].filter(isSet).join(', '),
       street,
       // pobox,
       neighborhood: subLocality,
@@ -140,7 +144,13 @@ export default ({
       label,
       protocol,
       username,
-    })),
+    })).filter(({
+      protocol,
+      username,
+    }) =>
+      isNonEmptyString(protocol) &&
+      isNonEmptyString(username)
+    ),
 
     organizations: organizations && organizations.map(({
       label,
@@ -168,14 +178,14 @@ export default ({
     }) => ({
       label,
       name,
-    })),
+    })).filter(({name}) => isNonEmptyString(name)),
 
     events: [
       (birthday || nonGregorianBirthday) && {
         label: 'birthday',
         ...(birthday || nonGregorianBirthday),
       },
-    ].concat(dates).filter((x) => x).map(({
+    ].concat(dates).filter(isSet).map(({
       label,
       year,
       month,
@@ -183,19 +193,27 @@ export default ({
     }) => ({
       label,
       startDate: formatDate({year, month, day}),
-    })),
+    })).filter(({startDate}) => isNonEmptyString(startDate)),
 
     photos: photos && photos.map(({
-      photo,
+      data,
+      uri,
     }) => ({
-      photo,
-    })),
+      data,
+      uri,
+    })).filter(({
+      data,
+      uri,
+    }) =>
+      isNonEmptyString(data) ||
+      isNonEmptyString(uri)
+    ),
 
     notes: notes && notes.map(({
       note,
     }) => ({
       note,
-    })),
+    })).filter(({note}) => isNonEmptyString(note)),
 
     websites: websites && websites.map(({
       label,
@@ -203,7 +221,7 @@ export default ({
     }) => ({
       label,
       url,
-    })),
+    })).filter(({url}) => isNonEmptyString(url)),
 
     sipAddresses: sipAddresses && sipAddresses.map(({
       label,
@@ -211,7 +229,7 @@ export default ({
     }) => ({
       label,
       sipAddress,
-    })),
+    })).filter(({sipAddress}) => isNonEmptyString(sipAddress)),
 
     identities: identities && identities.map(({
       identity,
@@ -219,6 +237,12 @@ export default ({
     }) => ({
       identity,
       namespace,
-    })),
+    })).filter(({
+      identity,
+      namespace,
+    }) =>
+      isNonEmptyString(identity) ||
+      isNonEmptyString(namespace)
+    ),
   };
 };

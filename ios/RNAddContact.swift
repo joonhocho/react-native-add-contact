@@ -23,7 +23,6 @@ class RNAddContact: NSObject, CNContactViewControllerDelegate {
   }
   
   @objc func addContact(_ data: [String: Any], resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
-    print("addcontact", data)
     self.resolve = resolve
     self.reject = reject
     let contact = createContact(data: data)
