@@ -72,7 +72,7 @@ export default ({
     phoneticFamilyName,
     phoneticOrganizationName,
 
-    note: notes && notes[0] && notes[0].note,
+    note: notes && notes[0] && notes[0].value,
     imageData: photo && photo.data,
     imageUri: photo && photo.uri,
 
