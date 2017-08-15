@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-add-contact",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "React Native Wrapper for CNContactViewController for adding a contact",
   "main": "index.js",
   "scripts": {
