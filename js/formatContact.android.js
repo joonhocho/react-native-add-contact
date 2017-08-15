@@ -15,13 +15,13 @@ export default ({
   // type,
   name,
   nicknames,
-  organizations,
+  jobs,
   phones,
   emails,
-  postals,
-  websites,
+  addresses,
+  urls,
   relations,
-  // socialProfiles,
+  socialProfiles,
   ims,
   birthday,
   nonGregorianBirthday,
@@ -83,10 +83,10 @@ export default ({
 
     nicknames: nicknames && nicknames.map(({
       label,
-      name,
+      value,
     }) => ({
       label,
-      name,
+      name: value,
     })).filter(({name}) => isNonEmptyString(name)),
 
     phones: phones && phones.map(({
@@ -99,17 +99,16 @@ export default ({
 
     emails: emails && emails.map(({
       label,
-      address,
+      value,
       displayName,
     }) => ({
       label,
-      address,
+      address: value,
       displayName,
     })).filter(({address}) => isNonEmptyString(address)),
 
-    postals: postals && postals.map(({
+    postals: addresses && addresses.map(({
       label,
-      formattedAddress,
       street,
       subLocality,
       city,
@@ -118,9 +117,10 @@ export default ({
       postalCode,
       country,
       isoCountryCode,
+      formatted,
     }) => ({
       label,
-      formattedAddress: formattedAddress || [
+      formattedAddress: formatted || [
         street,
         city || subLocality,
         state || subAdministrativeArea,
@@ -136,14 +136,15 @@ export default ({
       country: country || isoCountryCode,
     })),
 
-    ims: ims && ims.map(({
+    ims: (socialProfiles || []).concat(ims || []).map(({
       label,
-      service: protocol,
+      service,
       username,
+      userId,
     }) => ({
       label,
-      protocol,
-      username,
+      protocol: service,
+      username: username || userId,
     })).filter(({
       protocol,
       username,
@@ -152,14 +153,14 @@ export default ({
       isNonEmptyString(username)
     ),
 
-    organizations: organizations && organizations.map(({
+    organizations: jobs && jobs.map(({
       label,
       company,
       title,
       department,
       jobDescription,
       symbol,
-      phoneticCompany: phoneticName,
+      phoneticCompany,
       officeLocation,
     }) => ({
       label,
@@ -168,16 +169,16 @@ export default ({
       department,
       jobDescription,
       symbol,
-      phoneticName,
+      phoneticName: phoneticCompany,
       officeLocation,
     })),
 
     relations: relations && relations.map(({
       label,
-      name,
+      value,
     }) => ({
       label,
-      name,
+      name: value,
     })).filter(({name}) => isNonEmptyString(name)),
 
     events: [
@@ -210,17 +211,17 @@ export default ({
     ),
 
     notes: notes && notes.map(({
-      note,
+      value,
     }) => ({
-      note,
+      note: value,
     })).filter(({note}) => isNonEmptyString(note)),
 
-    websites: websites && websites.map(({
+    websites: urls && urls.map(({
       label,
-      url,
+      value,
     }) => ({
       label,
-      url,
+      url: value,
     })).filter(({url}) => isNonEmptyString(url)),
 
     sipAddresses: sipAddresses && sipAddresses.map(({
