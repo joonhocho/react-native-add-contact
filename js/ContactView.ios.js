@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {requireNativeComponent} from 'react-native';
 import formatContact from './formatContact';
 
@@ -16,7 +17,7 @@ class ContactView extends React.Component {
 }
 
 ContactView.propTypes = {
-  contact: React.PropTypes.object,
+  contact: PropTypes.object,
 };
 
 module.exports = ContactView;
